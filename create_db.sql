@@ -1,7 +1,7 @@
 create schema dat210_gruppe_b;
 
 create table Informasjon(
-	ID int primary key auto_increment,
+	ID int primary key not null auto_increment,
 	tag varchar(30),
     location varchar(15),
     dato date,
@@ -9,4 +9,5 @@ create table Informasjon(
     rating int,  
     hendelse varchar(30),
     thumbnail varbinary(10000)
+    image longblob not null
 ); 
