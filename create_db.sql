@@ -9,6 +9,6 @@ create table Informasjon(
     album varchar(255),
     rating int,  
     hendelse varchar(255),
-    thumbnail varbinary(10000)
+    thumbnail varbinary(max)
     image longblob not null
 ); 
