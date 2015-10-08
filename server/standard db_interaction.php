@@ -7,12 +7,18 @@ $db_database = "dat210_server";
 
 $conn = mysqli_connect($db_server, $db_username, $db_password, $db_database);
 
-if (!$conn) {
+if (!$conn) {  # Sjekker om du klarer og koble deg til serveren. Viss ikke gis feilmelding
     die("Connection failed: " . mysqli_connect_error());
 }
 echo "Connected successfully <br>";
 
-$sql = "SELECT * FROM Informasjon WHERE noe = " . "'$search'"; # Dette er et søk, men can brukes til å sette inn, 
+
+$search = isset($_POST['search']) ? $_POST['search'] : "";
+
+# Dette er et søk, men kan brukes til f.eks til å lagre istede for
+$sql = "SELECT * FROM Informasjon WHERE noe = " . "'$search'"; 
+
+#selve utførselen av søket og returnerer funn
 $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
    	echo "Foelgende treff paa " . $search . ": <br>";
