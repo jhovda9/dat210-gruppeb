@@ -20,8 +20,10 @@ $search = isset($_POST['search']) ? $_POST['search'] : "";
 $sql = "SELECT * FROM Informasjon WHERE noe = " . "'$search'"; 
 
 #selve utførselen av søket og returnerer funn
-$result = mysqli_query($conn, $sql);
-if (mysqli_num_rows($result) > 0) {
+$stmt = $mysqli->prepare($sql);
+$stmt->execute();
+$stmt->store_result();
+if ($stmt->num_rows > 0) {
    	echo "Foelgende treff paa " . $search . ": <br>";
    	while($row = mysqli_fetch_assoc($result)) {
        	echo $row['rowname'] . "<br>";
@@ -45,6 +47,10 @@ $sql = "INSERT INTO tabellnavn(`fil`, `thumbnail`, `album`,`tag`, `by`, `land`, 
 		} else {
 	    	echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 		}
+$stmt = $mysqli->prepare($sql);
+$stmt->execute();
+$stmt->store_result();
+if ($stmt->num_rows > 0) {		
 		
 		
 #Lukker tilkoblingen
