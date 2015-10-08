@@ -32,6 +32,21 @@ if (mysqli_num_rows($result) > 0) {
    	echo $row['rowname'];
 }
 
+#hente verdier til innsetning
+$fil = isset($_POST['fil']) ? $_POST['fil'] : "";
+$thumbnail = isset($_POST['thumbnail']) ? $_POST['thumbnail'] : "";
+$album = isset($_POST['album']) ? $_POST['album'] : "";
+$tag = isset($_POST['tag']) ? $_POST['tag'] : ""; # osv så du henter alle verdier som skal inn
+#Dette er en insetting/lagring av en fil der alle verdier er med
+$sql = "INSERT INTO tabellnavn(`fil`, `thumbnail`, `album`,`tag`, `by`, `land`, `dato`, `rating`, `hendelse` ) 
+		VALUES ('$fil' , '$thumbnail', '$album', '$tag', '$by', '$land', '$dato', '$rating', '$hendelse')";
+		if (mysqli_query($conn, $sql) === TRUE) {
+    		echo " <br> New record created successfully<br>";
+		} else {
+	    	echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		}
+		
+		
 #Lukker tilkoblingen
 mysqli_close($conn);
 ?>
