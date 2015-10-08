@@ -5,6 +5,7 @@ $db_username = "root";
 $db_password = "";
 $db_database = "dat210_server";
 
+#lagrer tilkoblingsinformasjonen i et connect objekt
 $conn = mysqli_connect($db_server, $db_username, $db_password, $db_database);
 
 if (!$conn) {  # Sjekker om du klarer og koble deg til serveren. Viss ikke gis feilmelding
@@ -12,7 +13,7 @@ if (!$conn) {  # Sjekker om du klarer og koble deg til serveren. Viss ikke gis f
 }
 echo "Connected successfully <br>";
 
-
+#Post for å hente evt finne verdier som trengs
 $search = isset($_POST['search']) ? $_POST['search'] : "";
 
 # Dette er et søk, men kan brukes til f.eks til å lagre istede for
@@ -31,6 +32,6 @@ if (mysqli_num_rows($result) > 0) {
    	echo $row['rowname'];
 }
 
+#Lukker tilkoblingen
 mysqli_close($conn);
-
 ?>
