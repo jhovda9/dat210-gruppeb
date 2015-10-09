@@ -99,6 +99,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MainPageImageHandler.cs" />
     <Compile Include="header.xaml.cs">
       <DependentUpon>header.xaml</DependentUpon>
     </Compile>

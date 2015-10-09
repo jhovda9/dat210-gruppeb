@@ -29,26 +29,26 @@ namespace Client
         {
             this.InitializeComponent();
 
+            PopulateMainImageGrid();
+        }
+
+        private void PopulateMainImageGrid()
+        {
             for (int i = 0; i < 10; i++)
             {
-                Main.RowDefinitions.Add(new RowDefinition());
-                Main.ColumnDefinitions.Add(new ColumnDefinition());
+                var rowDef = new RowDefinition();
+                rowDef.Height = new GridLength(150);
+                MainImageGrid.RowDefinitions.Add(rowDef);
+                MainImageGrid.ColumnDefinitions.Add(new ColumnDefinition());
                 for (int j = 0; j < 10; j++)
                 {
-                    var bildet = new Image();
-                    bildet.Source = new BitmapImage(new Uri("ms-appx:///Assets/120px-Human_Thumbnail.jpg"));
-                    bildet.Margin = new Thickness(2, 2, 2, 2);
-                    Main.Children.Add(bildet);
-                    Grid.SetRow(bildet, i);
-                    Grid.SetColumn(bildet, j);
+                    var image = MainPageImageHandler.CreateImageButtons(new Uri("ms-appx:///Assets/120px-Human_Thumbnail.jpg"));
+                    MainImageGrid.Children.Add(image);
+                    Grid.SetRow(image, i);
+                    Grid.SetColumn(image, j);
 
                 }
             }
-        }
-
-        private void Content_SizeChanged(object sender, SizeChangedEventArgs e)
-        {
-            ContentScrollViewer.Height = e.NewSize.Height;
         }
     }
 }

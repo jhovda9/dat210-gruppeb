@@ -18,14 +18,13 @@
             <Controls:header />
         </StackPanel>
         <!--Content-->
-        <StackPanel Grid.Row="1" Name="Content" SizeChanged="Content_SizeChanged" >
-            <ScrollViewer Name="ContentScrollViewer" Height="{Binding ActualHeight, ElementName=Content, Mode=OneWay}"  >
-                <Grid Name="Main" VerticalAlignment="Stretch" Height="auto" >
-                </Grid>
-            </ScrollViewer>
-            <Grid Name="Edit" Visibility="Collapsed" Background="Purple">
-                <TextBlock Text="Edit view" />
-            </Grid>
-        </StackPanel>
+        <!--Height="{Binding ActualHeight, ElementName=Content, Mode=OneWay}" -->
+        <ScrollViewer Grid.Row="1" Name="ContentScrollViewer" Height="auto" >
+                <Grid Name="MainImageGrid" >
+                </Grid> 
+        </ScrollViewer>
+        <Grid Grid.Row="1" Name="Edit" Visibility="Collapsed" Background="Purple">
+            <TextBlock Text="Edit view" />
+        </Grid>
     </Grid>
 </Page>
