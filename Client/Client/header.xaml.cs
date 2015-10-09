@@ -23,5 +23,15 @@ namespace Client
         {
             this.InitializeComponent();
         }
+
+        public static event EventHandler Bibliotek_clicked;
+
+        private void Bibliotek_Click(object sender, RoutedEventArgs e)
+        {
+            if (Bibliotek_clicked != null)
+            {
+                Bibliotek_clicked(this, EventArgs.Empty);
+            }
+        }
     }
 }

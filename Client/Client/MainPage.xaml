@@ -19,12 +19,50 @@
         </StackPanel>
         <!--Content-->
         <!--Height="{Binding ActualHeight, ElementName=Content, Mode=OneWay}" -->
-        <ScrollViewer Grid.Row="1" Name="ContentScrollViewer" Height="auto" >
+        <ScrollViewer Grid.Row="1" Name="ContentScrollViewer" Height="auto" Visibility="Collapsed" x:FieldModifier="public" >
                 <Grid Name="MainImageGrid" >
                 </Grid> 
         </ScrollViewer>
-        <Grid Grid.Row="1" Name="Edit" Visibility="Collapsed" Background="Purple">
-            <TextBlock Text="Edit view" />
+        <Grid Grid.Row="1" Name="Edit" x:FieldModifier="public" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="4*"/>
+            </Grid.ColumnDefinitions>
+            <!-- Edit sidemenu -->
+            <Grid Grid.Column="0" BorderThickness="2 2 2 2" BorderBrush="Gray" >
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                
+                <Button Content="Tool 1" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                <Button Content="Tool 2" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                <Button Content="Tool 3" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="0 0 0 1" BorderBrush="Gray" />
+                <Button Content="Tool 4" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="0 0 0 1" BorderBrush="Gray" />
+                
+                <!-- These need proper builder and implementation -->
+                <Button Content="Image 1" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="0 1 0 0" BorderBrush="Gray" />
+                <Button Content="Image 2" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="0 1 0 0" BorderBrush="Gray" />
+                <Button Content="Image 3" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                <Button Content="Image 4" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                <Button Content="Image 5" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                <Button Content="Image 6" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                <Button Content="Image 7" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                <Button Content="Image 8" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                
+            </Grid>
+            <!-- Edited image -->
+            <Rectangle Fill="#33000000" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" />
+                <Image Name="EditObject" Grid.Column="1" Source="ms-appx:///Assets/120px-Human_Thumbnail.jpg" Margin="5 5 5 5" />
+            
         </Grid>
     </Grid>
 </Page>

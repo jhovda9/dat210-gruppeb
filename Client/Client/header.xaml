@@ -34,7 +34,7 @@
                         Content="Bibliotek"
                         HorizontalAlignment="Stretch"
                         VerticalAlignment="Stretch"
-                        Margin="8 5 8 5"
+                        Margin="8 5 8 5" Click="Bibliotek_Click"
                         />
                 <Button 
                         Grid.Column="1"
@@ -72,7 +72,7 @@
                         VerticalAlignment="Bottom"
                         />
         </Grid>
-        <Grid Grid.Column="1" BorderThickness="1 2 2 2" BorderBrush="Gray">
+        <Grid Grid.Column="1" BorderThickness="1 2 1 2" BorderBrush="Gray">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition />
@@ -108,7 +108,7 @@
                         VerticalAlignment="Bottom"
                         />
         </Grid>
-        <Grid Grid.Column="2">
+        <Grid Grid.Column="2" BorderThickness="1 2 2 2" BorderBrush="Gray">
             <Grid.RowDefinitions>
                 <RowDefinition />
                 <RowDefinition />

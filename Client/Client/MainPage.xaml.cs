@@ -5,8 +5,8 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
-using Windows.Storage.Pickers;
 using Windows.Storage;
+using Windows.Storage.Pickers;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -29,7 +29,9 @@ namespace Client
         {
             this.InitializeComponent();
 
-            PopulateMainImageGrid();
+            this.PopulateMainImageGrid();
+
+            header.Bibliotek_clicked += new EventHandler(NavigateToLibrary);
         }
 
         private void PopulateMainImageGrid()
@@ -49,6 +51,14 @@ namespace Client
 
                 }
             }
+        }
+
+        
+
+        public void NavigateToLibrary(object sender, EventArgs e)
+        {
+            Edit.Visibility = Visibility.Collapsed;
+            ContentScrollViewer.Visibility = Visibility.Visible;
         }
     }
 }
